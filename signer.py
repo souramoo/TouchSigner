@@ -14,7 +14,7 @@ import Tkinter as tk
 line_thickness = 6
 antialiasing = False
 window_size = (640, 480)
-resize_on_save = True
+resize_on_save = False
 
 # REST OF CODE FOLLOWS:
 def draw_instructions(instructions):
@@ -92,7 +92,10 @@ while True:
                    pygame.mouse.set_visible(0)
                    pygame.event.set_grab(1)
                    continue
-                tosave = pygame.Surface((maxwidth-minwidth, maxheight-minheight), pygame.SRCALPHA, 32)
+                if resize_on_save:
+                    tosave = pygame.Surface((maxwidth-minwidth, maxheight-minheight), pygame.SRCALPHA, 32)
+                else:
+                    tosave = pygame.Surface(window_size, pygame.SRCALPHA, 32)
                 tosave = tosave.convert_alpha()
                 for pos1, pos2 in window(points, 2):
                     if resize_on_save:
