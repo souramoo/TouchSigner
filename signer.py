@@ -93,9 +93,9 @@ while True:
                    pygame.event.set_grab(1)
                    continue
                 if resize_on_save:
-                    tosave = pygame.Surface((maxwidth-minwidth, maxheight-minheight), pygame.SRCALPHA, 32)
-                else:
                     tosave = pygame.Surface(window_size, pygame.SRCALPHA, 32)
+                else:
+                    tosave = pygame.Surface((maxwidth-minwidth, maxheight-minheight), pygame.SRCALPHA, 32)
                 tosave = tosave.convert_alpha()
                 for pos1, pos2 in window(points, 2):
                     if resize_on_save:
